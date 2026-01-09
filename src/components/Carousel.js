@@ -10,6 +10,7 @@ import portfolio from "../assets/images/portfolio.PNG";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Carousel = (props) => {
     const [allItems, setAllItems] = useState([
@@ -60,14 +61,14 @@ const Carousel = (props) => {
     };
     
     const makeItems = (items) => {
-        console.log(items);
         return items.map((item) => {
             return (
-            <Card
-                item={item}
-                click={(e) => handleCardClick(item.id, e)}
-                key={item.id}
-            />
+            <Col md={4} sm={12} key={item.id} className="mb-5 d-flex align-items-stretch">
+                <Card
+                    item={item}
+                    click={(e) => handleCardClick(item.id, e)}
+                />
+            </Col>
             );
         });
     };

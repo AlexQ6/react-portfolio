@@ -3,8 +3,6 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import ParticlesBg from 'particles-bg'
-import "./App.css";
 
 import Footer from "./components/Footer";
 import HomePage from "./pages/Home";
@@ -21,9 +19,9 @@ const App = (params) => {
   ]);
   // eslint-disable-next-line
   const [home, setHome] = useState({
-    title: "Alex Qiang",
-    subTitle: "A full stack developer ",
-    text: "Check out my projects below",
+    title: "Hello, I'm Alex.",
+    subTitle: "Full Stack Developer",
+    text: "Check out my projects below.",
   });
   // eslint-disable-next-line
   const [about, setAbout] = useState({
@@ -31,10 +29,10 @@ const App = (params) => {
   });
 
   return (
-  
     <BrowserRouter>
-      <Container className="p-0" fluid={true}>
-        <Navbar className="border-bottom" bg="transparent" expand="lg">
+      {/* Main Container for the 'Paper' look */}
+      <Container className="p-0" fluid={false} style={{ maxWidth: '1000px', minHeight: '100vh' }}>
+        <Navbar className="py-4 mb-5" bg="transparent" expand="lg">
           <Navbar.Brand>
             <Link className="navbar-brand" to="/">Alex Qiang</Link>
           </Navbar.Brand>
@@ -61,11 +59,10 @@ const App = (params) => {
         />
         <Route path="/about" render={() => <AboutPage title={about.title} />} />
 
-        <Footer />
       </Container>  
+      <Footer />
       
-      <ParticlesBg type="cobweb" bg={true}/>
-
+      {/* Removed ParticlesBg for Editorial Theme */}
     </BrowserRouter>
   );
 };

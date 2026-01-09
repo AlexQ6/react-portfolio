@@ -14,13 +14,14 @@ function CardInfo(props) {
     });
 
     return(
-        <animated.div className="g-card-info" ref={cardRef} style={style}>
+        <div className="g-card-info" ref={cardRef}>
             <p className="g-card-title">{props.title}</p>
             <p className="g-card-sub-title">{props.subTitle}</p>
-            <a href={props.link} target="_blank" rel="noopener noreferrer">View</a>
-            <br></br>
-            <a href={props.repoLink} target="_blank" rel="noopener noreferrer">Github</a>
-        </animated.div>
+            <div className="mt-auto pt-3">
+                <a href={props.link} target="_blank" rel="noopener noreferrer" className="mr-3 text-accent font-weight-bold">VIEW PROJECT</a>
+                <a href={props.repoLink} target="_blank" rel="noopener noreferrer" className="text-secondary">SOURCE</a>
+            </div>
+        </div>
     );
 
 }
