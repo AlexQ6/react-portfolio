@@ -1,41 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 import "./CustomCursor.css";
 
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+const CustomCursor = forwardRef((props, ref) => {
+  const cursorRef = React.useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    const updatePosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseOver = (e) => {
-      if (e.target.tagName === "A" || e.target.tagName === "BUTTON" || e.target.closest("a") || e.target.closest("button")) {
+  useImperativeHandle(ref, () => ({
+    updatePosition: (e) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${e.clientX}px`;
+        cursorRef.current.style.top = `${e.clientY}px`;
+      }
+    },
+    handleMouseOver: (e) => {
+      if (
+        e.target.tagName === "A" ||
+        e.target.tagName === "BUTTON" ||
+        e.target.closest("a") ||
+        e.target.closest("button")
+      ) {
         setIsHovered(true);
       } else {
         setIsHovered(false);
       }
-    };
-
-    window.addEventListener("mousemove", updatePosition);
-    window.addEventListener("mouseover", handleMouseOver);
-
-    return () => {
-      window.removeEventListener("mousemove", updatePosition);
-      window.removeEventListener("mouseover", handleMouseOver);
-    };
-  }, []);
+    }
+  }));
 
   return (
     <div
+      ref={cursorRef}
       className={`custom-cursor ${isHovered ? "hovered" : ""}`}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-      }}
     />
   );
-};
+});
 
 export default CustomCursor;

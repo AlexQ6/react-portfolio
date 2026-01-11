@@ -5,13 +5,6 @@ function CardInfo(props) {
 
     const style = useSpring({opacity: 1, from: {opacity: 0}});
     const cardRef = useRef(null);
-    useEffect(() => {
-        if (cardRef.current) {      
-            cardRef.current.scrollIntoView({
-                behavior: "smooth",
-            });
-        }  
-    });
 
     return(
         <div className="g-card-info" ref={cardRef}>
