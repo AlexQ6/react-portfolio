@@ -10,23 +10,15 @@ import AboutPage from "./pages/About";
 
 import CustomCursor from "./components/CustomCursor";
 
-const App = (params) => {
+const App = () => {
 
-  const [title, setTitle] = useState("Alex Qiang");
-
-  const [headerLinks, setHeaderLinks] = useState([
-    { title: "Home", path: "/" },
-    { title: "About", path: "/about" },
-    { title: "Contact", path: "/contact" },
-  ]);
-
-  const [home, setHome] = useState({
+  const [home] = useState({
     title: "Hello, I'm Alex.",
     subTitle: "Full Stack Developer",
     text: "Check out my projects below.",
   });
 
-  const [about, setAbout] = useState({
+  const [about] = useState({
     title: "About Me",
   });
 

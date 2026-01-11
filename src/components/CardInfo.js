@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { useSpring, animated } from 'react-spring';
+import React, { useRef } from 'react';
 
 function CardInfo(props) {
 
-    const style = useSpring({opacity: 1, from: {opacity: 0}});
     const cardRef = useRef(null);
 
     return(
