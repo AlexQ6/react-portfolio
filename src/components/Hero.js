@@ -10,7 +10,15 @@ function Hero(props) {
             <Container fluid={true}>
                 <Row className="justify-content-center py-5">
                     <Col md={10} sm={12}>
-                        { props.title && <h1 className="display-3 mb-4 font-weight-bold" style={{lineHeight: '1.1'}}>{props.title}</h1> }
+                        { props.title && (
+                            <h1 className="display-3 mb-4 font-weight-bold reveal-text" style={{lineHeight: '1.1'}}>
+                                {props.title.split(" ").map((word, index) => (
+                                    <span key={index} style={{ animationDelay: `${index * 0.15}s`, marginRight: '0.25em' }}>
+                                        {word}
+                                    </span>
+                                ))}
+                            </h1>
+                        ) }
                         { props.subTitle && <h3 className="display-6 font-weight-light mb-4 text-secondary" style={{fontSize: '1.75rem'}}>{props.subTitle}</h3> }
                         { props.text && <h3 className="lead font-weight-normal text-secondary" style={{fontSize: '1.25rem', maxWidth: '600px'}}>{props.text}</h3> }
                     </Col>

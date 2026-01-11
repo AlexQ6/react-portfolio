@@ -13,7 +13,7 @@ function AboutPage(props) {
 
             <p>I also have experience in building microservice APIs using Java.</p>
 
-            <p>Want to get in touch? Message me on <a href="https://www.linkedin.com/in/alex-qiang/">Linkedin</a>.</p>
+            <p>Want to get in touch? Message me on <a className="text-accent" href="https://www.linkedin.com/in/alex-qiang/">Linkedin</a>.</p>
             </Content>
         </div>
     );

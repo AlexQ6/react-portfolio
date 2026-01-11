@@ -76,7 +76,7 @@ const Carousel = (props) => {
       
     return (
         <Container fluid={true}>
-          <Row className="justify-content-around">
+          <Row className="justify-content-around broken-grid-row align-items-start">
               {makeItems(allItems)}
           </Row>
         </Container>

@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
 
+import CustomCursor from "./components/CustomCursor";
+
 const App = (params) => {
   // eslint-disable-next-line
   const [title, setTitle] = useState("Alex Qiang");
@@ -30,6 +32,16 @@ const App = (params) => {
 
   return (
     <BrowserRouter>
+      <CustomCursor />
+      {/* Editorial Grid Lines */}
+      <div className="grid-lines">
+        <div className="grid-line"></div>
+        <div className="grid-line"></div>
+        <div className="grid-line"></div>
+        <div className="grid-line"></div>
+        <div className="grid-line"></div>
+      </div>
+
       {/* Main Container for the 'Paper' look */}
       <Container className="p-0" fluid={false} style={{ maxWidth: '1000px', minHeight: '100vh' }}>
         <Navbar className="py-4 mb-5" bg="transparent" expand="lg">
